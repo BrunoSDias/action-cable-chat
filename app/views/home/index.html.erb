@@ -1,0 +1,29 @@
+<% if @current_user %>
+  <%= link_to "Sair", logout_path %>
+<% end %>
+
+<h1>Bem vindo <% if @current_user %> <u><%= @current_user&.nome %></u><% end %> ao BatePapo TSUP </h1>
+
+<% if @current_user.blank? %>
+  <%= form_for Usuario.new, method: :post do |f| %>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+
+    <%= f.submit "Acessar" %>
+  <% end %>
+<% else %>
+  <%= form_for SalaBatePapo.new, method: :post do |f| %>
+    <%= f.label :topico %>
+    <%= f.text_field :topico %>
+
+    <%= f.submit "Nova Sala" %>
+  <% end %>
+  
+  <ul style="margin-top: 20px;">
+    <% @salas&.each do |sala| %>
+      <li><%= link_to sala.topico, sala %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+

@@ -1,0 +1,22 @@
+<%= form_with(model: sala_bate_papo, local: true) do |form| %>
+  <% if sala_bate_papo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sala_bate_papo.errors.count, "error") %> prohibited this sala_bate_papo from being saved:</h2>
+
+      <ul>
+      <% sala_bate_papo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :topico %>
+    <%= form.text_field :topico %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

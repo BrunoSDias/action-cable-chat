@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sala Bate Papos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topico</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sala_bate_papos.each do |sala_bate_papo| %>
+      <tr>
+        <td><%= sala_bate_papo.topico %></td>
+        <td><%= link_to 'Show', sala_bate_papo %></td>
+        <td><%= link_to 'Edit', edit_sala_bate_papo_path(sala_bate_papo) %></td>
+        <td><%= link_to 'Destroy', sala_bate_papo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sala Bate Papo', new_sala_bate_papo_path %>

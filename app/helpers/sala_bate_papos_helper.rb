@@ -1,0 +1,2 @@
+module SalaBatePaposHelper
+end

@@ -1,0 +1,2 @@
+class SalaBatePapo < ApplicationRecord
+end
