@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :mensagems
   resources :usuarios
   resources :sala_bate_papos
+
+  mount ActionCable.server => '/cable'
 end
