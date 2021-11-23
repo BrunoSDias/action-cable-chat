@@ -1,3 +1,4 @@
-<p>
-  <b> <%= mensagem.usuario.nome %>: <%= mensagem.conteudo %></b>
+<% usuario = mensagem.usuario %>
+<p <% if @current_user.nome == usuario.nome %> style="text-align: right;" <% end %>>
+  <b > <%= usuario.nome %>:</b> <%= mensagem.conteudo %>
 </p>

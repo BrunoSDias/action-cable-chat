@@ -22,11 +22,12 @@ class UsuariosController < ApplicationController
   # POST /usuarios or /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
-
+    usuario = Usuario.find_by(nome: usuario_params[:nome]) if usuario_params[:nome].present?
+    @usuario = usuario if usuario.present?
     respond_to do |format|
       if @usuario.save
         cookies[:user_id] = @usuario.id
-        format.html { redirect_to root_path, notice: "Usuario was successfully created." }
+        format.html { redirect_to root_path, notice: "Usuario foi criado com sucesso." }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new, status: :unprocessable_entity }

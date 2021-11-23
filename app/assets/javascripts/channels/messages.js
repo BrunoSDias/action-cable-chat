@@ -6,6 +6,6 @@ App.messages = App.cable.subscriptions.create( { channel: "MessagesChannel", con
     console.log(res);
   },
   received: function(res) {
-    $("#messages").append("<p><b>" + res.usuario + ": " + res.mensagem + "</b></p>")
+    $("#messages").append("<p style='text-align: right;'><b>" + res.usuario + ":</b> " + res.mensagem + "</p>")
   }
 });

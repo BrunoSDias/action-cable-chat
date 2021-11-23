@@ -18,6 +18,6 @@
 
 function sendData(el, event) {
   event.preventDefault();
-  $("#new_mensagem").submit();
+  $("#submit_message").click();
   $("#mensagem_conteudo").val("");
 }

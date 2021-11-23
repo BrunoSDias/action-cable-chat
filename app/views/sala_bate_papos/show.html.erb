@@ -13,12 +13,13 @@
   <% end %>
   
   <div style='width: 500px; margin: auto; margin-top: 10px;'>
-    <%= form_for @sala_bate_papo.mensagems.new, remote: true do |f| %>
+    <%= form_for @sala_bate_papo.mensagems.new, remote: true, authencity_token: true do |f| %>
       <%= f.label :conteudo, "Mensagem" %>
       <%= f.hidden_field :sala_bate_papo_id, value: @sala_bate_papo.id %>
       <%= f.text_area :conteudo, style: "width:100%; min-height: 100px; padding: 5px;" %>
 
-      <%= f.submit "Enviar", onclick:"sendData(this, event)" %>
+      <%= button_tag "Enviar", type: "button", onclick: "sendData(this, event)" %>
+      <%= f.submit "Enviar", style: "display:none;", id: 'submit_message' %>
     <% end %>
     
   </div>
